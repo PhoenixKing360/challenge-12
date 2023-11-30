@@ -1,0 +1,18 @@
+DROP DATABASE IF EXISTS main_db;
+CREATE DATABASE main_db;
+
+USE main_db;
+
+CREATE TABLE main (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  movie_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE reviews (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   main_id INT,
+    review TEXT NOT NULL,
+    FOREIGN KEY (main_id)
+    REFERENCES main(id)
+    ON DELETE SET NULL
+);
